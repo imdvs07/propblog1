@@ -34,7 +34,7 @@ app.use(cors(issue2options));
 app.use("/", authRoute); 
 app.use("/", postRoute);
 
-
-app.listen(process.env.PORT || 8080, ()=>{
+const PORT = process.env.PORT || 8080; 
+app.listen(PORT, ()=>{
     console.log("Server up and running");
 });
