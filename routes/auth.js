@@ -97,7 +97,7 @@ router.post("/login", async (req,res)=>{
     if(!validPassword) return res.status(400).json({"message":"Incorrect Password"}); 
 
     //CREATE AND ASSIGN A TOKEN
-    const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
+    const token = jwt.sign({_id: user._id}, "ksdnkjgnsljkdfngkdnfv");
     res.cookie('authtoken',token, { sameSite: 'none'});
     res.status(200).json({"token":token});
 

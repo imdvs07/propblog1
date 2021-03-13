@@ -12,7 +12,7 @@ const authRoute = require('./routes/auth');
 const postRoute = require("./routes/posts");
 
 //DATABASE CONNECT
-mongoose.connect(process.env.DB_CONNECT ,
+mongoose.connect("mongodb+srv://divyansh:dvs123456@cluster0.dvgy0.mongodb.net/PropBlog?retryWrites=true&w=majority" ,
 { useNewUrlParser: true, useUnifiedTopology: true }  , ()=>{ 
     console.log("Connected to Database PropBlog");
 });
