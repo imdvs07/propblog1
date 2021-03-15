@@ -26,6 +26,11 @@ const issue2options = {
     credentials: true,
   };
 
+app.get("/", (req, res)=>{
+    res.send("HELLO MATEY");
+    console.log("get ki request aayi h");
+});
+  
 //MIDDLEWARE
 app.use(express.json()); 
 app.use(cors(issue2options));
@@ -43,6 +48,6 @@ if(process.env.NODE_ENV === "production"){
 
 const PORT = process.env.PORT || 8080; 
 app.listen(PORT, ()=>{
-    console.log("Server up and running yall");
+    console.log("Server up and running now");
 });
 
