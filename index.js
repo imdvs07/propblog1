@@ -30,6 +30,10 @@ const issue2options = {
 app.use(express.json()); 
 app.use(cors(issue2options));
 
+app.get('/', (req, res)=>{
+    res.status(200).send("HELLO MATEY");
+})
+
 //ROUTE MIDDLEWARE
 app.use("/", authRoute); 
 app.use("/", postRoute);
