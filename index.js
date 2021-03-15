@@ -37,8 +37,10 @@ app.use("/", postRoute);
 //Check if it running in production
 if(process.env.NODE_ENV === "production"){
     console.log("Static is being served");
-    app.use(express.static("client/build"));
+    app.use("/", express.static("client/build"));
 }
+
+
 
 const PORT = process.env.PORT || 8080; 
 app.listen(PORT, ()=>{
