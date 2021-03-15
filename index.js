@@ -30,18 +30,13 @@ const issue2options = {
 app.use(express.json()); 
 app.use(cors(issue2options));
 
-app.get('/', (req, res)=>{
-    res.status(200).send("HELLO MATEY");
-})
-
 //ROUTE MIDDLEWARE
 app.use("/", authRoute); 
 app.use("/", postRoute);
 
 //Check if it running in production
 if(process.env.NODE_ENV === "production"){
-    console.log("Static is being served");
-    app.use("/", express.static("client/build"));
+    app.use(express.static("client/build"));
 }
 
 
