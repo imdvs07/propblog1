@@ -36,6 +36,7 @@ app.use("/", postRoute);
 
 //Check if it running in production
 if(process.env.NODE_ENV === "production"){
+    console.log("Static is being served");
     app.use(express.static("client/build"));
 }
 
