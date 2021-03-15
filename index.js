@@ -12,7 +12,7 @@ const authRoute = require('./routes/auth');
 const postRoute = require("./routes/posts");
 
 //DATABASE CONNECT
-mongoose.connect("mongodb+srv://divyansh:dvs123456@cluster0.dvgy0.mongodb.net/PropBlog?retryWrites=true&w=majority" ,
+mongoose.connect(process.env.DB_CONNECT,
 { useNewUrlParser: true, useUnifiedTopology: true }  , ()=>{ 
     console.log("Connected to Database PropBlog");
 });
@@ -34,7 +34,13 @@ app.use(cors(issue2options));
 app.use("/", authRoute); 
 app.use("/", postRoute);
 
+//Check if it running in production
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static("client/build"));
+}
+
 const PORT = process.env.PORT || 8080; 
 app.listen(PORT, ()=>{
     console.log("Server up and running");
 });
+
