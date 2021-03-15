@@ -26,10 +26,10 @@ const issue2options = {
     credentials: true,
   };
 
-app.get("/", (req, res)=>{
-    res.send("HELLO MATEY");
-    console.log("get ki request aayi h");
-});
+// app.get("/", (req, res)=>{
+//     res.send("HELLO MATEY");
+//     console.log("get ki request aayi h");
+// });
   
 //MIDDLEWARE
 app.use(express.json()); 
@@ -41,13 +41,13 @@ app.use("/", postRoute);
 
 //Check if it running in production
 if(process.env.NODE_ENV === "production"){
-    app.use(express.static("client/build"));
+    app.use(express.static('client/buildcd..'));
 }
 
 
 
 const PORT = process.env.PORT || 8080; 
 app.listen(PORT, ()=>{
-    console.log("Server up and running now");
+    console.log("Server up and running now on", PORT);
 });
 
