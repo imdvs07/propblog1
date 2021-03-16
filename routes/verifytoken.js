@@ -5,7 +5,7 @@ module.exports = function(req,res,next){
     const authtoken = req.body.token;
     // const {cookies} = req;
     // const {authtoken} = cookies;
-    if(!authtoken) return res.status(401).send("Access Denied");
+    if(!authtoken) return res.status(401).send("Accessessses Denied");
 
     try{
         const verified = jwt.verify(authtoken, process.env.TOKEN_SECRET);
